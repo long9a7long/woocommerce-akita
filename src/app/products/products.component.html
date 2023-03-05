@@ -6,12 +6,15 @@
             </div>
         </div>
     </ng-container>
-    <ng-container *ngIf="(pagination$ | async) as pagination">
-        <div nz-col class="gutter-row" [nzSpan]="6" *ngFor="let item of pagination.data">
-            <div class="inner-box">
-                <app-product-grid-item [product]="item"></app-product-grid-item>
+    <ng-container *ngIf="pagination$ | async as pagination">
+        <ng-container *ngIf="!(paginatorRef.isLoading$ | async)">
+            <div nz-col class="gutter-row" [nzSpan]="6" *ngFor="let item of pagination.data">
+                <div class="inner-box">
+                    <app-product-grid-item [product]="item"></app-product-grid-item>
+                </div>
             </div>
-        </div>
+        </ng-container>
+
         <div nz-col class="gutter-row" [nzSpan]="24">
             <nz-pagination [nzPageIndex]="pagination.currentPage" [nzTotal]="pagination.total" (nzPageIndexChange)="handlePageChange($event)"></nz-pagination>
         </div>

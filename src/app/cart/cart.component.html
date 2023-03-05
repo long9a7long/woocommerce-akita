@@ -1,3 +1,42 @@
-<p>
-  cart works!
-</p>
+<div nz-row [nzGutter]="[16, 16]">
+    <div nz-col class="gutter-row" [nzSpan]="18">
+        <ng-container *ngIf="items$ | async as items">
+            <nz-table #basicTable [nzData]="items">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Sub Total</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of basicTable.data">
+                        <td>
+                            <img [src]="data.image" width="50px" height="50px" class="product-img" /> {{ data.name }}
+                        </td>
+                        <td>{{ data.quantity }}</td>
+                        <td>{{ data.price | currency : "VND" }}</td>
+                        <td>{{ data.total | currency : "VND" }}</td>
+                        <td>
+                            <a><span
+                  nz-icon
+                  nzType="delete"
+                  [nzTheme]="'twotone'"
+                  [nzTwotoneColor]="'#eb2f96'"
+                  nz-tooltip
+                  nzTooltipTitle="Remove from cart"
+                  (click)="handleRemoveCartItem(data.productId)"
+                ></span
+              ></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </nz-table>
+        </ng-container>
+    </div>
+    <div nz-col class="gutter-row" [nzSpan]="6">
+        <h2>Total: {{ total$ | async | currency : "VND" }}</h2>
+    </div>
+</div>

@@ -1,11 +1,11 @@
 <nz-layout>
     <nz-header>
         <ul nz-menu nzMode="horizontal">
-            <li nz-menu-item nzSelected [routerLink]="['/']">
+            <li nz-menu-item nzSelected [routerLink]="['/']" nzMatchRouter nzMatchRouterExact>
                 <span nz-icon nzType="mail"></span> Home
             </li>
-            <li nz-menu-item [routerLink]="['/cart']">
-                <span nz-icon nzType="appstore"></span> Shopping cart
+            <li nz-menu-item [routerLink]="['/cart']" nzMatchRouter nzMatchRouterExact>
+                <span nz-icon nzType="appstore"></span> Shopping cart ({{itemsCount$ | async}})
             </li>
         </ul>
     </nz-header>

@@ -1,12 +1,12 @@
 <nz-card [nzCover]="coverTemplate" [nzActions]="[actionSetting, actionEllipsis]">
-    <nz-card-meta [nzTitle]="product.name"></nz-card-meta>
+    <nz-card-meta [nzTitle]="product.name" [nzDescription]="product.price ? (product.price | currency: 'VND') : 'Contact price'"></nz-card-meta>
 </nz-card>
 <ng-template #coverTemplate>
     <img alt="example" [src]="product.images[0].src" />
 </ng-template>
 <ng-template #actionSetting>
-    <span nz-icon nzType="read"></span>
+    <span nz-icon nzType="read" nz-tooltip nzTooltipTitle="See details"></span>
 </ng-template>
 <ng-template #actionEllipsis>
-    <span nz-icon nzType="shopping-cart"></span>
+    <span nz-icon nzType="shopping-cart" nz-tooltip nzTooltipTitle="Add to cart" (click)="handleAddToCart()"></span>
 </ng-template>
