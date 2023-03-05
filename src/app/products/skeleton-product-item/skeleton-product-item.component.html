@@ -1,0 +1,12 @@
+<nz-card [nzCover]="coverTemplate" style="width: 100%; min-width: 308px;" [nzActions]="[actionSetting, actionEllipsis]" [nzLoading]="true">
+    <nz-card-meta nzTitle="product.name"></nz-card-meta>
+</nz-card>
+<ng-template #coverTemplate>
+    <nz-skeleton-element nzType="image" [nzActive]="true"></nz-skeleton-element>
+</ng-template>
+<ng-template #actionSetting>
+    <span nz-icon nzType="read"></span>
+</ng-template>
+<ng-template #actionEllipsis>
+    <span nz-icon nzType="shopping-cart"></span>
+</ng-template>
