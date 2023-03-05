@@ -2,7 +2,7 @@
     <nz-card-meta [nzTitle]="product.name" [nzDescription]="product.price ? (product.price | currency: 'VND') : 'Contact price'"></nz-card-meta>
 </nz-card>
 <ng-template #coverTemplate>
-    <img alt="example" [src]="product.images[0].src" />
+    <img alt="example" [src]="product.images[0].src" width="308px" />
 </ng-template>
 <ng-template #actionSetting>
     <span nz-icon nzType="read" nz-tooltip nzTooltipTitle="See details"></span>
